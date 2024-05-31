@@ -27,8 +27,8 @@ const Categories = () => {
   ];
 
   return (
-    <div className="container my-4">
-      <div className="row justify-content-center">
+    <div className=" mt-5">
+      <div className="row justify-content-evenly">
         {categoryWithImages.map((category) => (
           <div key={category.title} className="col-md-2 mx-2">
             <div className="card">
