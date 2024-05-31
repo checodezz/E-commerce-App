@@ -1,0 +1,14 @@
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-overlay {
+    background: rgba(0, 0, 0, 0.28);
+    color: white;
+}
+
+.card-img {
+    height: 100%;
+    object-fit: cover;
+}
