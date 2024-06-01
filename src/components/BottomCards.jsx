@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const BottomCards = () => {
   return (
-    <div className="px-5">
+    <div className="px-5 container">
       <div className="row">
         <div className="col-md-6 mb-3">
           <div className="card">

@@ -8,11 +8,9 @@ function App() {
   return (
     <>
       <Header />
-      <main className="container">
-        <Categories />
-        <CarouselCust />
-        <BottomCards />
-      </main>
+      <Categories />
+      <CarouselCust />
+      <BottomCards />
     </>
   );
 }
