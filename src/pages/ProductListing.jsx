@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import useFetch from "../useFetch";
+import { useParams } from "react-router-dom";
 
 const ProductListing = () => {
   const { error, loading, data } = useFetch(
@@ -10,6 +11,9 @@ const ProductListing = () => {
   const [listOfProducts, setListOfProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [priceFilter, setPriceFilter] = useState(100);
+  const [ratingFilter, setRatingFilter] = useState();
+  const [sortType, setSortType] = useState();
   useEffect(() => {
     if (data && data.products.length > 0) {
       setListOfProducts(data.products);
@@ -19,14 +23,14 @@ const ProductListing = () => {
 
   useEffect(() => {
     filterProducts();
-  }, [selectedCategories]);
+  }, [selectedCategories, priceFilter, ratingFilter, sortType]);
 
   const handleRangeBar = (event) => {
     const { value } = event.target;
-    setFilteredProducts(
-      listOfProducts.filter((product) => product.price >= parseInt(value))
-    );
+    setPriceFilter(parseInt(value));
   };
+
+  // console.log(priceFilter);
 
   const handleCheckbox = (e) => {
     const { checked, value } = e.target;
@@ -37,34 +41,41 @@ const ProductListing = () => {
         );
   };
 
-  // const filterProducts = () => {
-  //   let filtered = [...listOfProducts];
-  //   if (selectedCategories.length > 0) {
-  //     filtered = filtered.filter((product) =>
-  //       selectedCategories.includes(product.category)
-  //     );
-  //   }
-  //   console.log(filtered);
-  //   setFilteredProducts(filtered);
-  // };
+  const handleRatingChange = (e) => {
+    const { value } = e.target;
+    setRatingFilter(parseInt(value));
+    console.log(ratingFilter);
+  };
+
+  const handleSort = (e) => {
+    setSortType(e.target.value);
+  };
 
   const filterProducts = () => {
     let filtered = [...listOfProducts];
 
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((product) => {
-        console.log("Checking product:", product.category);
-        console.log("Selected categories:", selectedCategories);
         return selectedCategories.includes(product.category.toLowerCase());
       });
     }
 
-    console.log("Filtered products:", filtered);
+    if (priceFilter > 0) {
+      filtered = filtered.filter((product) => product.price >= priceFilter);
+    }
+
+    if (ratingFilter > 0) {
+      filtered = filtered.filter((product) => product.rating >= ratingFilter);
+      console.log(filtered);
+    }
+
+    if (sortType === "low") {
+      filtered = filtered.sort((a, b) => a.price - b.price);
+    } else {
+      filtered = filtered.sort((a, b) => b.price - a.price);
+    }
     setFilteredProducts(filtered);
   };
-
-  console.log(listOfProducts);
-  // console.log(filteredProducts);
 
   return (
     <>
@@ -118,20 +129,50 @@ const ProductListing = () => {
             <br />
             <div className="rating">
               <h4>Rating</h4>
-              <input type="radio" name="rating" value="4" /> 4 stars & above{" "}
-              <br />
-              <input type="radio" name="rating" value="3" /> 3 stars & above{" "}
-              <br />
-              <input type="radio" name="rating" value="2" /> 2 stars & above{" "}
-              <br />
-              <input type="radio" name="rating" value="1" /> 1 stars & above{" "}
-              <br />
+              <input
+                type="radio"
+                name="rating"
+                value="4"
+                onChange={handleRatingChange}
+              />{" "}
+              4 stars & above <br />
+              <input
+                type="radio"
+                name="rating"
+                value="3"
+                onChange={handleRatingChange}
+              />{" "}
+              3 stars & above <br />
+              <input
+                type="radio"
+                name="rating"
+                value="2"
+                onChange={handleRatingChange}
+              />{" "}
+              2 stars & above <br />
+              <input
+                type="radio"
+                name="rating"
+                value="1"
+                onChange={handleRatingChange}
+              />{" "}
+              1 stars & above <br />
             </div>
             <div className="sort">
               <h4>Sort by</h4>
-              <input type="radio" name="sort" value="low" />
+              <input
+                type="radio"
+                name="sort"
+                value="low"
+                onClick={handleSort}
+              />
               Price - Low to High <br />
-              <input type="radio" name="sort" value="high" />
+              <input
+                type="radio"
+                name="sort"
+                value="high"
+                onClick={handleSort}
+              />
               Price - High to Low
               <br />
             </div>
