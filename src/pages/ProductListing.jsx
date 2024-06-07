@@ -4,6 +4,7 @@ import useFetch from "../useFetch";
 import { useParams } from "react-router-dom";
 
 const ProductListing = () => {
+  const { category } = useParams();
   const { error, loading, data } = useFetch(
     "https://2893f49e-66c4-47fd-b2d7-386daade1163-00-zy5okukksf4t.sisko.replit.dev/products"
   );
@@ -14,6 +15,7 @@ const ProductListing = () => {
   const [priceFilter, setPriceFilter] = useState(100);
   const [ratingFilter, setRatingFilter] = useState();
   const [sortType, setSortType] = useState();
+
   useEffect(() => {
     if (data && data.products.length > 0) {
       setListOfProducts(data.products);
@@ -24,6 +26,14 @@ const ProductListing = () => {
   useEffect(() => {
     filterProducts();
   }, [selectedCategories, priceFilter, ratingFilter, sortType]);
+
+  useEffect(() => {
+    if (category) {
+      setSelectedCategories([category]);
+    }
+  }, [listOfProducts]);
+
+  console.log(selectedCategories);
 
   const handleRangeBar = (event) => {
     const { value } = event.target;
@@ -37,7 +47,7 @@ const ProductListing = () => {
     checked
       ? setSelectedCategories((prevVal) => [...prevVal, value])
       : setSelectedCategories((prevVal) =>
-          prevVal.filter((categories) => categories != value)
+          prevVal.filter((categories) => categories !== value)
         );
   };
 
@@ -86,8 +96,16 @@ const ProductListing = () => {
             className="col-md-3 px-4 py-3 bg-body-secondary rounded"
             style={{ position: "sticky", top: "30px", height: "90vh" }}
           >
+            <p>
+              <strong className="fs-5">Filters</strong>
+              <span
+                className="float-end"
+                onClick={() => setSelectedCategories([])}
+              >
+                Clear
+              </span>
+            </p>
             <div className="range-bar" style={{ width: "100%" }}>
-              Filters <br />
               <div className="range-label d-flex justify-content-between">
                 <span>100</span>
                 <span>150</span>
@@ -108,6 +126,7 @@ const ProductListing = () => {
                 type="checkbox"
                 name="category"
                 value="men"
+                checked={selectedCategories.includes("men")}
                 onChange={handleCheckbox}
               />
               Men <br />
@@ -115,6 +134,7 @@ const ProductListing = () => {
                 type="checkbox"
                 name="category"
                 value="women"
+                checked={selectedCategories.includes("women")}
                 onChange={handleCheckbox}
               />
               Women <br />
@@ -122,6 +142,7 @@ const ProductListing = () => {
                 type="checkbox"
                 name="category"
                 value="kids"
+                checked={selectedCategories.includes("kids")}
                 onChange={handleCheckbox}
               />
               Kids
