@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Categories = () => {
   const categoryWithImages = [
     {
@@ -34,7 +36,14 @@ const Categories = () => {
             <div className="card">
               <img src={category.image} alt={category.title} />
               <div className="card-img-overlay d-flex align-items-center justify-content-center">
-                <h5>{category.title}</h5>
+                <h5>
+                  <Link
+                    to={`/productlisting/${category.title.toLowerCase()}`}
+                    className="category-link"
+                  >
+                    {category.title}
+                  </Link>
+                </h5>
               </div>
             </div>
           </div>
