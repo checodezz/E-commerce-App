@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   const categoryWithImages = [
     {
+      title: "All",
+      image:
+        "https://www.shutterstock.com/image-photo/happy-latin-father-holding-arms-260nw-1415638652.jpg",
+    },
+    {
       title: "Men",
       image:
         "https://img.freepik.com/free-photo/excited-man-holding-shopping-bags-looking-happy-mobile-phone-screen-standing-yellow-background_1258-73660.jpg",
@@ -18,18 +23,13 @@ const Categories = () => {
         "https://img.freepik.com/free-photo/cute-little-girl-shopping_624325-3892.jpg",
     },
     {
-      title: "Electronics",
-      image:
-        "https://thumbs.dreamstime.com/b/saint-petersburg-russia-circa-may-goods-display-sony-store-galeria-shopping-center-electronics-store-134641471.jpg",
-    },
-    {
       title: "Grocery",
       image: "https://thumbs.dreamstime.com/b/groceries-23958998.jpg",
     },
   ];
 
   return (
-    <div className=" mt-5 container">
+    <div className=" my-5 container">
       <div className="row justify-content-evenly">
         {categoryWithImages.map((category) => (
           <div key={category.title} className="col-md-2 mx-2">
