@@ -277,7 +277,7 @@ const ProductListing = () => {
                       <h6 className="card-title pt-2">
                         <span
                           style={{
-                            background: "gradientgreen",
+                            background: "green",
                             borderRadius: "10%",
                             padding: "2px",
                             color: "white",
