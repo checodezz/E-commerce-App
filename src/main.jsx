@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-
 import App from "./App.jsx";
 import "./index.css";
 import ProductListing from "./pages/ProductListing.jsx";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 
 const router = createBrowserRouter([
   {
