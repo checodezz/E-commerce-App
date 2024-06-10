@@ -4,7 +4,9 @@ const GroceryPage = () => {
   return (
     <div>
       <Header />
-      <img src="https://placehold.co/600x400?text=Coming-Soon" alt="" />
+      <div className="container text-center my-5">
+        <img src="https://placehold.co/1200x600?text=Coming-Soon" alt="" />
+      </div>
     </div>
   );
 };
