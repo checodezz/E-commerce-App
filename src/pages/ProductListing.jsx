@@ -147,10 +147,16 @@ const ProductListing = () => {
                   className="form-check-input"
                   name="category"
                   value="men"
+                  id="men"
                   checked={selectedCategories.includes("men")}
                   onChange={handleCheckbox}
                 />
-                <label className="form-check-label font-monospace">Men</label>
+                <label
+                  className="form-check-label font-monospace"
+                  htmlFor="men"
+                >
+                  Men
+                </label>
               </div>
               <div className="form-check">
                 <input
@@ -158,10 +164,16 @@ const ProductListing = () => {
                   className="form-check-input"
                   name="category"
                   value="women"
+                  id="women"
                   checked={selectedCategories.includes("women")}
                   onChange={handleCheckbox}
                 />
-                <label className="form-check-label font-monospace">Women</label>
+                <label
+                  className="form-check-label font-monospace"
+                  htmlFor="women"
+                >
+                  Women
+                </label>
               </div>
               <div className="form-check">
                 <input
@@ -169,64 +181,70 @@ const ProductListing = () => {
                   className="form-check-input"
                   name="category"
                   value="kids"
+                  id="kids"
                   checked={selectedCategories.includes("kids")}
                   onChange={handleCheckbox}
                 />
-                <label className="form-check-label font-monospace">Kids</label>
+                <label
+                  className="form-check-label font-monospace"
+                  htmlFor="kids"
+                >
+                  Kids
+                </label>
               </div>
             </div>
             <br />
             <div className="rating pb-4">
               <h4>Rating</h4>
               <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  name="rating"
-                  value="4"
-                  checked={ratingFilter === 4}
-                  onChange={handleRatingChange}
-                />
                 <label className="form-check-label font-monospace">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    name="rating"
+                    value="4"
+                    checked={ratingFilter === 4}
+                    onChange={handleRatingChange}
+                  />
                   4 Stars & above
                 </label>
               </div>
               <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  name="rating"
-                  value="3"
-                  checked={ratingFilter === 3}
-                  onChange={handleRatingChange}
-                />
                 <label className="form-check-label font-monospace">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    name="rating"
+                    value="3"
+                    checked={ratingFilter === 3}
+                    onChange={handleRatingChange}
+                  />
                   3 Stars & above
                 </label>
               </div>
               <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  name="rating"
-                  value="2"
-                  checked={ratingFilter === 2}
-                  onChange={handleRatingChange}
-                />
                 <label className="form-check-label font-monospace">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    name="rating"
+                    value="2"
+                    checked={ratingFilter === 2}
+                    onChange={handleRatingChange}
+                  />
                   2 Stars & above
                 </label>
               </div>
               <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  name="rating"
-                  value="1"
-                  checked={ratingFilter === 1}
-                  onChange={handleRatingChange}
-                />
                 <label className="form-check-label font-monospace">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    name="rating"
+                    value="1"
+                    checked={ratingFilter === 1}
+                    onChange={handleRatingChange}
+                  />
                   1 Stars & above
                 </label>
               </div>
@@ -234,28 +252,28 @@ const ProductListing = () => {
             <div className="sort">
               <h4>Sort by</h4>
               <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  name="sort"
-                  value="low"
-                  checked={sortType === "low"}
-                  onClick={handleSort}
-                />
                 <label className="form-check-label font-monospace">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    name="sort"
+                    value="low"
+                    checked={sortType === "low"}
+                    onClick={handleSort}
+                  />
                   Price - Low to High
                 </label>
               </div>
               <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  name="sort"
-                  value="high"
-                  checked={sortType === "high"}
-                  onClick={handleSort}
-                />
                 <label className="form-check-label font-monospace">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    name="sort"
+                    value="high"
+                    checked={sortType === "high"}
+                    onClick={handleSort}
+                  />
                   Price - High to Low
                 </label>
               </div>
