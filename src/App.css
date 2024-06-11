@@ -40,3 +40,27 @@
 .range-bar input {
     cursor: pointer;
 }
+
+.range-bar {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.category-checkbox {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.rating {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sort {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+}

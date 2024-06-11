@@ -110,7 +110,7 @@ const ProductListing = () => {
         <div className="row">
           <div
             className="col-md-3 px-4 py-3 bg-body-secondary rounded"
-            style={{ position: "sticky", top: "10px", height: "90vh" }}
+            style={{ position: "sticky", top: "10px", height: "100vh" }}
           >
             <p>
               <strong className="fw-semibold">Filters</strong>
@@ -125,9 +125,9 @@ const ProductListing = () => {
             <h4>Price Range</h4>
             <div className="range-bar pt-2" style={{ width: "100%" }}>
               <div className="range-label d-flex justify-content-between font-monospace">
-                <span>100</span>
-                <span>150</span>
-                <span>200</span>
+                <span>100$</span>
+                <span>150$</span>
+                <span>200$</span>
               </div>
               <input
                 type="range"
@@ -139,8 +139,8 @@ const ProductListing = () => {
               />
             </div>
             <br />
+            <h4>Category</h4>
             <div className="category-checkbox">
-              <h4>Category</h4>
               <div className="form-check">
                 <input
                   type="checkbox"
@@ -194,8 +194,8 @@ const ProductListing = () => {
               </div>
             </div>
             <br />
-            <div className="rating pb-4">
-              <h4>Rating</h4>
+            <h4>Rating</h4>
+            <div className="rating ">
               <div className="form-check">
                 <label className="form-check-label font-monospace">
                   <input
@@ -249,8 +249,8 @@ const ProductListing = () => {
                 </label>
               </div>
             </div>
+            <h4 className="pt-3">Sort by</h4>
             <div className="sort">
-              <h4>Sort by</h4>
               <div className="form-check">
                 <label className="form-check-label font-monospace">
                   <input
