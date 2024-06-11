@@ -24,3 +24,19 @@
     justify-content: center;
     height: 100vh;
 }
+
+.rating label {
+    cursor: pointer;
+}
+
+.sort label {
+    cursor: pointer;
+}
+
+.category-checkbox label {
+    cursor: pointer;
+}
+
+.range-bar input {
+    cursor: pointer;
+}
