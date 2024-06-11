@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 const ProductListing = () => {
   const { category } = useParams();
   const { error, loading, data } = useFetch(
-    "https://2893f49e-66c4-47fd-b2d7-386daade1163-00-zy5okukksf4t.sisko.replit.dev/products"
+    "https://project-1-backend-cyan.vercel.app/products"
   );
 
   const [listOfProducts, setListOfProducts] = useState([]);
